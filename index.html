@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>P-Security</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+  <style>
+    /* Agrega tu código CSS aquí */
+    .info-window {
+      background-color: white;
+      border: 2px solid rgb(184, 22, 22);
+      padding: 10px;
+    }
+
+    .info-window h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .info-window p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .info-window img {
+      display: block;
+      margin: auto;
+      width: 250px;
+      height: 150px;
+      margin-top: 10px;
+    }
+  </style>
+
+  <!-- =======================================================
+  * Template Name: PhotoFolio - v1.2.0
+  * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt=""> 
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Mapa</a></li>
+          <li><a href="about.html">Prevención</a></li>
+         
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+
+  
+  <div class="legend-container">
+    
+    <div class="legend">
+      <img src="assets/img/homicide.png" alt="Icono 1" />
+      <span>Homicidio</span>
+    </div>
+    <div class="legend">
+      <img src="assets/img/kidnapping.png" alt="Icono 2" />
+      <span>Secuestro</span>
+    </div>
+    <div class="legend">
+      <img src="assets/img/assault.png" alt="Icono 3" />
+      <span>Asalto</span>
+    </div>
+    <div class="legend">
+      <img src="assets/img/danger.png" alt="Icono 4" />
+      <span>Peligro </span>
+    </div>
+    <div class="legend">
+      <img src="assets/img/extortion.png" alt="Icono 5" />
+      <span>Extorsión</span>
+    </div>
+  </div>
+  
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer>
+    </script>
+    <script>
+      
+  function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          mapId: "70cf68cc8e1072f1",
+          zoom: 14,
+          center: { lat: 20.391353, lng: -101.190209 },
+          streetViewControl: false, // Agregar el botón de Street View
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_CENTER, // Posición del control de zoom
+      style: google.maps.ZoomControlStyle.SMALL // Estilo del control de zoom
+    },
+    streetViewControlOptions: {
+      position: google.maps.ControlPosition.TOP_RIGHT // Posición del control de Street View
+    }
+        });
+
+        const polygonCoords = [
+    { lat: 20.384167, lng: -101.185556 },
+    { lat: 20.378611, lng: -101.178889 },
+    { lat: 20.383611, lng: -101.174444 },
+    { lat: 20.387500, lng: -101.178056 }
+  ];
+
+  const polygon = new google.maps.Polygon({
+    paths: polygonCoords,
+    strokeColor: "#FF0000",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.35,
+    map: map
+  });
+
+  const polygonCoords2 = [
+  { lat: 20.552059, lng: -101.148361 },
+  { lat: 20.550351, lng: -101.152556 },
+  { lat: 20.547234, lng: -101.153721 },
+  { lat: 20.549072, lng: -101.146973 }
+];
+
+const polygon2 = new google.maps.Polygon({
+  paths: polygonCoords2,
+  strokeColor: "#FF0000",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#FF0000",
+  fillOpacity: 0.35,
+  map: map
+});
+
+
+        
+
+        setMarkers(map);
+        setMarkers2(map);
+        setMarkers3(map);
+        setMarkers4(map);
+        setMarkers5(map);
+      }
+
+      let lastInfoWindow;
+
+      const style = document.createElement('style');
+document.head.appendChild(style);
+
+const sheet = style.sheet;
+const rules = '.center-img { display: block; margin-left: auto; margin-right: auto; }';
+sheet.insertRule(rules, sheet.rules.length);
+
+
+
+      const kidnappings = [
+      
+  ["Secuestro", 20.385278, -101.184167, 2, "<h1 class='text-dark' align='center'>Secuestro</h1><p class='text-dark' align='center'>Se han reportado varios intentos de asalto en esta zona. Tenga cuidado y tome sus precauciones.</p><img src='assets/img/kidnapping.jpg' width='250' height='150' class='center-img'>"],
+  ["Secuestro", 20.385556, -101.198611, 1, "<h1 class='text-dark' align='center'>Secuestro</h1><p class='text-dark' align='center'> Un hombre sospechoso alto, delgado y encapuchado con una playera blanca y pantalón negro se acercó a una mujer, intentando cargarla. Se dice que el hombre frecuenta esta zona. Por favor, tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 25/03/2023</strong></p><img src='assets/img/kidnapping.jpg' width='250' height='150' class='center-img'>"],
+      ];
+
+      function setMarkers(map) {
+  const image = {
+    url: "assets/img/kidnapping.png",
+    scaledSize: new google.maps.Size(30, 32),
+    origin: new google.maps.Point(0, 0),
+  };
+
+  for (let i = 0; i < kidnappings.length; i++) {
+    const kidnapping = kidnappings[i];
+
+    const marker = new google.maps.Marker({
+      position: { lat: kidnapping[1], lng: kidnapping[2] },
+      map,
+      icon: image,
+      title: kidnapping[0],
+      zIndex: kidnapping[3],
+    });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: kidnapping[4],
+    });
+
+    marker.addListener("click", () => {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+      infowindow.open(map, marker);
+      lastInfoWindow = infowindow;
+
+      map.panTo(marker.getPosition());
+      map.setZoom(16);
+    });
+  }
+}
+
+const murders = [
+        ["Homicidio", 20.574933, -101.209801, 5, "<h1 class='text-dark' align='center'>Homicidio</h1><p class='text-dark' align='center'>Se reporta homicidio contra un hombre que se encontraba en la esquina. Las causas se desconocen</p><p class='text-dark' align='center'><strong>Fecha: 25/11/2022</strong></p><img src='assets/img/homicide.jpg' width='250' height='150' class='center-img'>"],
+        ["Homicidio", 20.388889, -101.178611, 4, "<h1 class='text-dark' align='center'>Homicidio</h1><p class='text-dark' align='center'>Se reporta homicidio contra un hombre que se encontraba en la esquina. Las causas se desconocen. Tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 22/11/2023</strong></p><img src='assets/img/homicide.jpg' width='250' height='150' class='center-img'>"],
+        ["Homicidio", 20.380556, -101.199722, 3, "<h1 class='text-dark' align='center'>Homicidio</h1><p class='text-dark' align='center'>Ataque con arma blanca, hacia un hombre que se dirigía a la escuela primaria 21 de marzo. Tome sus precaución</p><p class='text-dark' align='center'><strong>Fecha: 02/12/2022</strong></p><img src='assets/img/homicide.jpg' width='250' height='150' class='center-img'>"],
+        ["Homicidio", 20.393889, -101.182500, 2, "<h1 class='text-dark' align='center'>Homicidio</h1><p class='text-dark' align='center'>Se reporta asesinato en el cuál dos hombres que viajaban en una motocicleta atacaron a un civil varón que se encontraba cruzando la calle alrededor de las 9:30 pm. Tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 21/04/23</strong></p><img src='assets/img/homicide.jpg' width='250' height='150' class='center-img'>"],
+        ["Homicidio", 20.385278, -101.191389, 1, "<h1 class='text-dark' align='center'>Homicidio</h1><p class='text-dark' align='center'> Se comete homicidio contra un hombre, segun diversos informes. Fue por una persona que se trasladaba en una motocicleta</p><p class='text-dark' align='center'><strong>Fecha: 22/09/22</strong></p><img src='assets/img/homicide.jpg' width='250' height='150' class='center-img'>"],
+      ];
+
+function setMarkers2(map) {
+  const image2 = {
+    url: "assets/img/homicide.png",
+    scaledSize: new google.maps.Size(30, 32),
+    origin: new google.maps.Point(0, 0),
+  };
+
+  for (let i = 0; i < murders.length; i++) {
+    const murder = murders[i];
+
+    const marker2 = new google.maps.Marker({
+      position: { lat: murder[1], lng: murder[2] },
+      map,
+      icon: image2,
+      title: murder[0],
+      zIndex: murder[3],
+    });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: murder[4],
+    });
+
+    marker2.addListener("click", () => {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+      infowindow.open(map, marker2);
+      lastInfoWindow = infowindow;
+
+      map.panTo(marker2.getPosition());
+      map.setZoom(16);
+    });
+  }
+}
+
+const dangers = [
+        ["Zona peligrosa", 20.574038, -101.196761, 3, "<h1 class='text-dark' align='center'>Ataque con arma blanca</h1><p class='text-dark' align='center'>Se reporta ataque con arma blanca en este punto. Las causas se desconocen. Sin embargo tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 25/04/2023</strong></p><img src='assets/img/danger.jpg' width='250' height='150' class='center-img'>"],
+        ["Zona peligrosa", 20.383711, -101.183315, 2, "<h1 class='text-dark' align='center'>Ataque con arma blanca</h1><p class='text-dark' align='center'>Se reporta ataque con arma blanca en este punto. Las causas se desconocen. Sin embargo tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 22/04/2023</strong></p><img src='assets/img/danger.jpg' width='250' height='150' class='center-img'>"],
+        ["Zona peligrosa", 20.378611, -101.206501, 1, "<h1 class='text-dark' align='center'>Ataque con arma blanca</h1><p class='text-dark' align='center'> Se reporta ataque con arma blanca en este punto. Las causas se desconocen. Sin embargo tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 22/02/2023</strong></p><img src='assets/img/danger.jpg' width='250' height='150' class='center-img'>"],
+      ];
+
+      function setMarkers3(map) {
+  const image3 = {
+    url: "assets/img/danger.png",
+    scaledSize: new google.maps.Size(30, 32),
+    origin: new google.maps.Point(0, 0),
+  };
+
+  for (let i = 0; i < dangers.length; i++) {
+    const danger = dangers[i];
+
+    const marker3 = new google.maps.Marker({
+      position: { lat: danger[1], lng: danger[2] },
+      map,
+      icon: image3,
+      title: danger[0],
+      zIndex: danger[3],
+    });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: danger[4],
+    });
+
+    marker3.addListener("click", () => {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+      infowindow.open(map, marker3);
+      lastInfoWindow = infowindow;
+
+      map.panTo(marker3.getPosition());
+      map.setZoom(16);
+    });
+  }
+}
+
+const assaults = [
+        ["Asalto", 20.383611, -101.183056, 5, "<h1 class='text-dark' align='center'>Asalto</h1><p class='text-dark' align='center'>Se reporta asalto hacia una menor de edad que se encontraba esperando el camión para ir a una escuela el atacante se reporta con género masculino.</p><p class='text-dark' align='center'><strong>Fecha: 21/01/2023</strong></p><img src='assets/img/assault.jpg' width='250' height='150' class='center-img'>"],
+        ["Asalto", 20.388056, -101.189444, 4, "<h1 class='text-dark' align='center'>Asalto</h1><p class='text-dark' align='center'>Dos sujetos varones, se hicieron pasar por vendedores ambulantes para asaltar a una mujer, que transitaba en su coche. Tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 24/03/2023</strong></p><img src='assets/img/assault.jpg' width='250' height='150' class='center-img'>"],
+        ["Asalto", 20.381389, -101.188333, 3, "<h1 class='text-dark' align='center'>Asalto</h1><p class='text-dark' align='center'>Se localizan dos hombre de gorra negra y sudadera blanca que han asaltado a una persona de la tercera edad. Justamente en este punto. Tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 03/03/2023</strong></p><img src='assets/img/assault.jpg' width='250' height='150' class='center-img'>"],
+        ["Asalto", 20.378333, -101.198056, 2, "<h1 class='text-dark' align='center'>Asalto</h1><p class='text-dark' align='center'>Dos hombres asaltaron a dos personas que se encontraban en una banca. Tome sus precuciones</p><p class='text-dark' align='center'><strong>Fecha: 22/04/2022</strong></p><img src='assets/img/assault.jpg' width='250' height='150' class='center-img'>"],
+        ["Asalto", 20.380833, -101.197222, 1, "<h1 class='text-dark' align='center'>Asalto</h1><p class='text-dark' align='center'>Un joven se encontraba en el ciber café que se encuentra en esta ubicacion. A lo cual un hombre llegó y se llevo su bicicleta. Tome sus precauciones</p><p class='text-dark' align='center'><strong>Fecha: 22/01/22</strong></p><img src='assets/img/assault.jpg' width='250' height='150' class='center-img'>"],
+      ];
+
+      function setMarkers4(map) {
+  const image4 = {
+    url: "assets/img/assault.png",
+    scaledSize: new google.maps.Size(30, 32),
+    origin: new google.maps.Point(0, 0),
+  };
+
+  for (let i = 0; i < assaults.length; i++) {
+    const assault = assaults[i];
+
+    const marker4 = new google.maps.Marker({
+      position: { lat: assault[1], lng: assault[2] },
+      map,
+      icon: image4,
+      title: assault[0],
+      zIndex: assault[3],
+    });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: assault[4],
+    });
+
+    marker4.addListener("click", () => {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+      infowindow.open(map, marker4);
+      lastInfoWindow = infowindow;
+
+      map.panTo(marker4.getPosition());
+      map.setZoom(16);
+    });
+  }
+}
+
+const extortions = [
+        ["Extorsión", 20.383333, -101.187222, 1, "<h1 class='text-dark' align='center'>Extorsión</h1><p class='text-dark' align='center'>Cerca de este punto se reportan varios casos de extorsión en los negocios locales.</p><p class='text-dark' align='center'><strong>Fecha: Actualidad.</strong></p><img  align='center'src='assets/img/extortion.jpg' width='250' height='150' class='center-img'>"],
+      ];
+
+      function setMarkers5(map) {
+  const image5 = {
+    url: "assets/img/extortion.png",
+    scaledSize: new google.maps.Size(30, 32),
+    origin: new google.maps.Point(0, 0),
+  };
+
+  for (let i = 0; i < extortions.length; i++) {
+    const extortion = extortions[i];
+
+    const marker5 = new google.maps.Marker({
+      position: { lat: extortion[1], lng: extortion[2] },
+      map,
+      icon: image5,
+      title: extortion[0],
+      zIndex: extortion[3],
+    });
+
+    const infowindow = new google.maps.InfoWindow({
+      content: extortion[4],
+    });
+
+    marker5.addListener("click", () => {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+      infowindow.open(map, marker5);
+      lastInfoWindow = infowindow;
+
+      map.panTo(marker5.getPosition());
+      map.setZoom(16);
+    });
+  }
+}
+
+window.initMap = initMap;
+
+    </script>
+    
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+ 
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader">
+    <div class="line"></div>
+  </div> 
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "8c40e45f-5d6f-47ed-a214-a94f0d66f40d", // The ID of this integration.
+      region: "us-east", // The region your integration is hosted in.
+      serviceInstanceID: "b261ddb4-8204-468e-b4b4-0e859c42721f", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+  
+
+</body>
+
+</html>
